@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header>
+        <a href="index.html" class="header-btn pos-left">← Back to Search</a>
+        
+        <h1>Game Tracker</h1>
+        <p>Here records all your game processes</p>
+    </header>
+
+    <div class="tracker-section">
+        <div class="card">
+            <h3>Add New Game</h3>
+            <p class="card-hint">Type in the name of game to record your experiences.</p>
+            
+            <form id="gameForm">
+                <div class="form-row">
+                    <input type="text" id="gameTitle" placeholder="Game Name" required class="input-std">
+                </div>
+
+                <div class="form-row">
+                    <select id="status" class="input-std">
+                        <option value="Backlog">In Waitlist</option>
+                        <option value="Playing">Now Playing</option>
+                        <option value="Finished">Game Clear</option>
+                        <option value="Platinum">All Archivement</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <input type="number" id="hours" placeholder="Hours" min="0" class="input-std">
+                    <input type="number" id="rating" placeholder="Rate" min="1" max="5" class="input-std">
+                </div>
+
+                <div class="form-row">
+                    <input type="text" id="notes" placeholder="Notes..." class="input-std">
+                </div>
+                
+                <input type="hidden" id="editId">
+                
+                <div class="form-row right-align">
+                    <button type="submit" class="save-btn">Save</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Saved Games</h2>
+            <div id="gameList">
+                <p>Loading your database...</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="customModal" class="modal-overlay" style="display: none;">
+        <div class="modal-box">
+            <h3 id="modalTitle">Title</h3>
+            <p id="modalText">Content</p>
+            
+            <div id="modalActionsDefault" class="modal-actions">
+                <button onclick="closeModal()" class="btn-cancel">Cancel</button>
+                <button id="confirmActionBtn" class="btn-confirm">Confirm</button>
+            </div>
+
+            <div id="modalActionsSuccess" class="modal-actions" style="display: none;">
+                <button onclick="closeModal()" class="btn-cancel">Close</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
