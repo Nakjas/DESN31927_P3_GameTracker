@@ -11,6 +11,7 @@ const gameRecordSchema = new mongoose.Schema({
   hoursPlayed: { type: Number, min: 0 },
   userRating: { type: Number, min: 1, max: 5 },
   notes: { type: String },
+  tags: { type: [String], default: [] },
   updatedAt: { type: Date, default: Date.now }
 });
 
